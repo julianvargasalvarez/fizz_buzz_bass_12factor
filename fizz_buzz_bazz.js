@@ -26,3 +26,16 @@ assertEqual("Returns 'Bazz' when 15 is given", "Bazz", fizz_buzz_bazz(15))
 assertEqual("Returns 4 when 4 is given", 4, fizz_buzz_bazz(4))
 
 
+var http = require('http')
+var query = require('url')
+
+var server = http.createServer(function(request, response) {
+  const {headers, method, url} = request
+  const params = query.parse(url, true)
+  console.log(params.query.number)
+  const result = fizz_buzz_bazz(params.query.number)
+  response.end(result)
+})
+
+server.listen(8080)
+
