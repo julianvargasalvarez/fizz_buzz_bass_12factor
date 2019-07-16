@@ -44,7 +44,7 @@ var server = http.createServer(function(request, response) {
   const result = fizz_buzz_bazz(params.query.number)
 
   /* Vista */
-  response.end(result)
+  response.end("<html><i>"+result+"</i>   <style> i{color: red;}  </style>                               </html>")
 })
 
 server.listen(8080)
